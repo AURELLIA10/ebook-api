@@ -29,7 +29,7 @@ Route::get('/Books/{id}', [BookController::class, 'show']);
 
 //protected routes
 Route::middleware('auth:sanctum')->group(function () {
-    Route::resource('books', BookController::class)->except('create', 'edit', 'show', 'index');
+    Route::resource('books', BookController::class)->except('show', 'index');
     Route::post('/logout', [AuthController::class, 'logout']);
 });         
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
